@@ -7,7 +7,6 @@ import ColorModeSwitch from "../../shared/ColorModeSwitch";
 import ProfileMenu from "./ProfileMenu";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import MobileSideBar from "../sidebar/MobileSideBar";
-import { Tooltip } from "../../components/ui/tooltip";
 
 const NavBar = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1000px)");
@@ -19,11 +18,12 @@ const NavBar = () => {
       position={"fixed"}
       width={"100vw"}
       padding={6}
-      paddingRight={20}
+      paddingRight={{ base: 5, md: 20 }}
       bgColor={`${bgColor}`}
       justifyContent={"space-between"}
       display={"flex"}
       alignItems={"center"}
+      zIndex={99}
     >
       <Heading
         fontSize={{ base: "2xl", md: "3xl" }}
@@ -82,11 +82,7 @@ const NavBar = () => {
           </Flex>
         )}
       </Flex>
-      {!isAboveMediumScreens && isMenuToggled && (
-        <Box>
-          <MobileSideBar />
-        </Box>
-      )}
+      {!isAboveMediumScreens && isMenuToggled && <MobileSideBar />}
     </Box>
   );
 };

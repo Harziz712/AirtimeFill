@@ -19,6 +19,8 @@ function HomePage() {
         lg: `${smallLaptop ? "310px" : "400px"} 1fr`,
       }}
       paddingTop={20}
+      height={"100vh"}
+      position={"relative"}
     >
       <Stack hideBelow="lg" bgColor={`${bgColor}`}>
         <GridItem area="aside" paddingLeft={`${smallLaptop ? 10 : 32}`}>

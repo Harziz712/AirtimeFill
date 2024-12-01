@@ -1,4 +1,4 @@
-import { Flex, Heading, Icon, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon } from "@chakra-ui/react";
 import { CgClose } from "react-icons/cg";
 import SideBar from ".";
 import { useState } from "react";
@@ -6,10 +6,10 @@ import { useColorModeValue } from "../../components/ui/color-mode";
 
 const MobileSideBar = () => {
   const [close, setClose] = useState("visible");
-  const bgColor = useColorModeValue("gray.100", "gray.800");
+  const bgColor = useColorModeValue("gray.100", "gray.900");
 
   return (
-    <VStack
+    <Box
       position={"absolute"}
       visibility={`${close}`}
       left={0}
@@ -18,6 +18,9 @@ const MobileSideBar = () => {
       right={0}
       bgColor={`${bgColor}`}
       width={"300px"}
+      alignItems={"right"}
+      height={"100vh"}
+      paddingLeft={10}
     >
       <Flex gap={20} marginTop={5} alignItems={"center"}>
         <Heading fontSize={"2xl"} color={"orange.500"}>
@@ -38,8 +41,10 @@ const MobileSideBar = () => {
           <CgClose />
         </Icon>
       </Flex>
-      <SideBar />
-    </VStack>
+      <Box>
+        <SideBar />
+      </Box>
+    </Box>
   );
 };
 

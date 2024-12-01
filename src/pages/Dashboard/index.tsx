@@ -1,7 +1,7 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import DisplayBox from "./DisplayBox";
 import MessageBar from "./MessageBar";
-import ServicesPage from "../services";
+import HomeServicePage from "./HomeServicePage";
 
 const Dashboard = () => {
   return (
@@ -18,8 +18,9 @@ const Dashboard = () => {
         <DisplayBox />
         <MessageBar />
       </Box>
-
-      <ServicesPage />
+      <Box paddingBottom={5}>
+        <HomeServicePage />
+      </Box>
     </SimpleGrid>
   );
 };

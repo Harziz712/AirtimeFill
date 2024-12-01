@@ -1,6 +1,7 @@
-import { Grid, GridItem, Icon, Text } from "@chakra-ui/react";
+import { GridItem, Icon, Text } from "@chakra-ui/react";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import { Link } from "react-router-dom";
 
 type Props = {
   icon: any;
@@ -25,22 +26,27 @@ function ServiceBar({ icon, name, description }: Props) {
         transition: "  ease-in-out  .35s",
       }}
       textAlign={"center"}
-      padding={10}
+      padding={{ base: 2, md: 8 }}
+      alignContent={"center"}
       borderRadius={"20px"}
-      height={"300px"}
-      width={{ base: "200px", md: `${smallLaptop ? "200px" : "280px"}` }}
+      height={{ base: "150px", md: `${smallLaptop ? "200px" : "220px"}` }}
+      width={{ base: "130px", md: `${smallLaptop ? "200px" : "220px"}` }}
     >
-      <Icon fontSize={{ base: "60px", md: `${smallLaptop ? "70px" : "80px"}` }}>
-        {icon}
-      </Icon>
-      <Text
-        fontSize={{ base: "15px", md: `${smallLaptop ? "16px" : "22px"}` }}
-        fontWeight={"bold"}
-        marginY={4}
-      >
-        {name}
-      </Text>
-      <Text fontSize={"12px"}>{description}</Text>
+      <Link to={""}>
+        <Icon
+          fontSize={{ base: "25px", md: `${smallLaptop ? "30px" : "40px"}` }}
+        >
+          {icon}
+        </Icon>
+        <Text
+          fontSize={{ base: "10px", md: `${smallLaptop ? "12px" : "15px"}` }}
+          fontWeight={"bold"}
+          marginY={4}
+        >
+          {name}
+        </Text>
+        <Text fontSize={{ base: "8px", md: `10px` }}>{description}</Text>
+      </Link>
     </GridItem>
   );
 }
