@@ -6,7 +6,7 @@ import {
   WifiIcon,
 } from "@heroicons/react/24/outline";
 import { ServiceType } from "../../shared/types";
-import { Flex, SimpleGrid, Text, Box } from "@chakra-ui/react";
+import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import { LuArrowRight } from "react-icons/lu";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import ServiceBar from "../services/serviceBar";

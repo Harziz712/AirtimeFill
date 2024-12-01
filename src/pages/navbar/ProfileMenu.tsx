@@ -9,10 +9,7 @@ import ProfilePic from "../../assets/profilePic.jpg";
 import { BsChevronDown } from "react-icons/bs";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import { Link } from "react-router-dom";
-import {
-  ArrowLeftStartOnRectangleIcon,
-  Cog6ToothIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowLeftStartOnRectangleIcon } from "@heroicons/react/24/outline";
 import { LuSettings } from "react-icons/lu";
 
 const ProfileMenu = () => {
