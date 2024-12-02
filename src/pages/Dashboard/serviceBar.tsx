@@ -3,13 +3,13 @@ import { useColorModeValue } from "../../components/ui/color-mode";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { Link } from "react-router-dom";
 
-type Props = {
+interface ServiceType {
   icon: any;
   name: string;
   description: string;
-};
+}
 
-function ServiceBar({ icon, name, description }: Props) {
+function ServiceBar({ icon, name, description }: ServiceType) {
   const textColor = useColorModeValue("cyan.800", "gray.200");
   const bgColor = useColorModeValue("gray.200", "cyan.800");
   const textHover = useColorModeValue("gray.200", "cyan.800");

@@ -1,6 +1,6 @@
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
-import { Box, Heading, Text } from "@chakra-ui/react";
-
+import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import ErrorImage from "../assets/errorImage.png";
 const ErrorPage = () => {
   const error = useRouteError();
   // to dynaiclly show the kind of error while routing
@@ -17,6 +17,13 @@ const ErrorPage = () => {
             ? "This page does not exist."
             : "Sorry, an unexpected error has occurred."}
         </Text>
+        <Box>
+          <Image
+            boxSize={{ base: "200px", md: "400px" }}
+            src={ErrorImage}
+            justifySelf={"center"}
+          />
+        </Box>
       </Box>
     </>
   );

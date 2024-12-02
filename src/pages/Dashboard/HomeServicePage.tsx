@@ -9,7 +9,7 @@ import { ServiceType } from "../../shared/types";
 import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import { LuArrowRight } from "react-icons/lu";
 import { useColorModeValue } from "../../components/ui/color-mode";
-import ServiceBar from "../services/serviceBar";
+import ServiceBar from "./serviceBar";
 
 const HomeServicePage = () => {
   const textColor = useColorModeValue("cyan.800", "gray.200");
