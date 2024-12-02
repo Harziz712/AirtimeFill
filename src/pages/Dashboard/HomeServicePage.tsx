@@ -5,11 +5,10 @@ import {
   WalletIcon,
   WifiIcon,
 } from "@heroicons/react/24/outline";
-import { ServiceType } from "../../shared/types";
 import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import { LuArrowRight } from "react-icons/lu";
 import { useColorModeValue } from "../../components/ui/color-mode";
-import ServiceBar from "./serviceBar";
+import ServiceBar, { ServiceType } from "./serviceBar";
 
 const HomeServicePage = () => {
   const textColor = useColorModeValue("cyan.800", "gray.200");
@@ -17,29 +16,34 @@ const HomeServicePage = () => {
   const services: Array<ServiceType> = [
     {
       icon: <ArrowsRightLeftIcon />,
+      path: "",
       name: "Convert airtime",
       description: "Convert your airtime to cash at amazing rates",
     },
     {
       icon: <WifiIcon />,
+      path: "",
       name: "Purchase data",
       description:
         "Make data purchases to any network and pay from your mobile wallet",
     },
     {
       icon: <CalculatorIcon />,
+      path: "",
       name: "Airtime Purchase",
       description:
         "Make airtime purchases to any network and pay from your mobile wallet",
     },
     {
       icon: <BoltIcon />,
+      path: "",
       name: "Electricity bill Payment",
       description:
         "Pay your electicity bill online- fast, secure and hassle-free",
     },
     {
       icon: <WalletIcon />,
+      path: "",
       name: "Fund wallet",
       description:
         "Add money to your HarzFlip wallet from your credit card or bank account",
@@ -68,6 +72,7 @@ const HomeServicePage = () => {
       >
         {services.map((service) => (
           <ServiceBar
+            path={service.path}
             icon={service.icon}
             name={service.name}
             description={service.description}

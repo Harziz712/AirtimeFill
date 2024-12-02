@@ -78,6 +78,7 @@ const SideBar = () => {
           alignContent={"center"}
           onClick={() => setSelectedPage(sidebtn.path)} // Set selected page on click
           cursor="pointer"
+          paddingRight={8}
         >
           <Link to={`${sidebtn.path}`}>
             <Flex gap={5} alignItems={"center"}>

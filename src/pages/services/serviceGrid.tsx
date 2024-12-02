@@ -48,7 +48,7 @@ const ServiceGrid = () => {
   return (
     <SimpleGrid
       columns={{ base: 1, md: 2 }}
-      paddingX={{ base: "12px", md: "30px" }}
+      paddingX={{ base: "1px", md: "30px" }}
       gap={{ base: 5, md: 10 }}
       justifyContent={"center"}
       paddingTop={5}

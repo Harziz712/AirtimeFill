@@ -3,13 +3,14 @@ import { useColorModeValue } from "../../components/ui/color-mode";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { Link } from "react-router-dom";
 
-interface ServiceType {
+export interface ServiceType {
   icon: any;
   name: string;
+  path: string;
   description: string;
 }
 
-function ServiceBar({ icon, name, description }: ServiceType) {
+function ServiceBar({ icon, name, path, description }: ServiceType) {
   const textColor = useColorModeValue("cyan.800", "gray.200");
   const bgColor = useColorModeValue("gray.200", "cyan.800");
   const textHover = useColorModeValue("gray.200", "cyan.800");
@@ -32,20 +33,20 @@ function ServiceBar({ icon, name, description }: ServiceType) {
       height={{ base: "150px", md: `${smallLaptop ? "200px" : "220px"}` }}
       width={{ base: "130px", md: `${smallLaptop ? "200px" : "220px"}` }}
     >
-      <Link to={""}>
+      <Link to={path}>
         <Icon
-          fontSize={{ base: "25px", md: `${smallLaptop ? "30px" : "40px"}` }}
+          fontSize={{ base: "30px", md: `${smallLaptop ? "34px" : "40px"}` }}
         >
           {icon}
         </Icon>
         <Text
-          fontSize={{ base: "10px", md: `${smallLaptop ? "12px" : "15px"}` }}
+          fontSize={{ base: "12px", md: `${smallLaptop ? "15px" : "18px"}` }}
           fontWeight={"bold"}
           marginY={4}
         >
           {name}
         </Text>
-        <Text fontSize={{ base: "8px", md: `10px` }}>{description}</Text>
+        <Text fontSize={{ base: "9px", md: `12px` }}>{description}</Text>
       </Link>
     </GridItem>
   );

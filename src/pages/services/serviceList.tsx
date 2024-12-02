@@ -27,24 +27,24 @@ function ServiceList({ image, name, description }: ServiceType2) {
       }}
       padding={{ base: 2, md: 2 }}
       alignContent={"center"}
-      borderRadius={"20px"}
+      borderRadius={"10px"}
       height={{ base: "130px", md: `${smallLaptop ? "180px" : "180px"}` }}
-      width={{ base: "250px", md: `${smallLaptop ? "310px" : "420px"}` }}
+      width={{ base: "280px", md: `${smallLaptop ? "310px" : "420px"}` }}
     >
       <Link to={""}>
         <HStack>
           <Box width={"200px"} paddingLeft={5}>
             <Text
               fontSize={{
-                base: "10px",
-                md: `${smallLaptop ? "12px" : "20px"}`,
+                base: "14px",
+                md: `${smallLaptop ? "18px" : "20px"}`,
               }}
               fontWeight={"bold"}
               marginY={4}
             >
               {name}
             </Text>
-            <Text fontSize={{ base: "8px", md: `12px` }}>{description}</Text>
+            <Text fontSize={{ base: "10px", md: `12px` }}>{description}</Text>
           </Box>
           <Box filter="grayscale(50%)">
             <Image

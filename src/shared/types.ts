@@ -8,11 +8,6 @@ export enum SelectedPage {
   GetHelp = "gethelp",
   Logout = "logout",
 }
-export interface ServiceType {
-  icon: any;
-  name: string;
-  description: string;
-}
 export interface LinkType {
   icon: any;
   page: string;
