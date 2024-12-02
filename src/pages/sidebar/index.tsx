@@ -1,6 +1,5 @@
 import { GridItem, Icon, SimpleGrid, Text, Flex } from "@chakra-ui/react";
 import {
-  ArrowLeftStartOnRectangleIcon,
   ChatBubbleLeftEllipsisIcon,
   GiftIcon,
   GlobeAltIcon,
@@ -12,6 +11,7 @@ import { Squares2X2Icon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import { useState } from "react";
+import LogOutText from "../../shared/LogOutText";
 
 const SideBar = () => {
   const Sidebtns = [
@@ -50,11 +50,6 @@ const SideBar = () => {
       icon: <ChatBubbleLeftEllipsisIcon />,
       page: "Get Help/FAQs",
     },
-    {
-      path: "/login",
-      icon: <ArrowLeftStartOnRectangleIcon />,
-      page: "LogOut",
-    },
   ];
   const textColor = useColorModeValue("cyan.800", "gray.200");
   const [selectedPage, setSelectedPage] = useState<string>("");
@@ -65,12 +60,12 @@ const SideBar = () => {
       paddingY={{ base: "34px", md: "10px" }}
       gap={3}
       position={"fixed"}
+      fontWeight={"bold"}
     >
       {Sidebtns.map((sidebtn) => (
         <GridItem
           key={`${sidebtn.page}`}
           color={selectedPage === sidebtn.path ? "orange.500" : textColor}
-          fontWeight={"bold"}
           borderRightWidth={4}
           borderRightColor={
             selectedPage === sidebtn.path ? "orange.400" : "transparent"
@@ -90,6 +85,9 @@ const SideBar = () => {
           </Link>
         </GridItem>
       ))}
+      <GridItem>
+        <LogOutText />
+      </GridItem>
     </SimpleGrid>
   );
 };
