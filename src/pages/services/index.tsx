@@ -12,7 +12,9 @@ const ServicesPage = () => {
         <Flex color={textColor} fontWeight={"bold"}>
           <Text fontSize={{ base: "1xl", md: "2xl" }}>Services</Text>
         </Flex>
-        <ServiceGrid />
+        <Box marginRight={2}>
+          <ServiceGrid />
+        </Box>
       </Box>
       <Box>
         <WalletOperation />

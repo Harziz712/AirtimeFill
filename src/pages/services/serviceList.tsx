@@ -25,11 +25,11 @@ function ServiceList({ image, name, description }: ServiceType2) {
         color: textHover,
         transition: "  ease-in-out  .35s",
       }}
-      padding={{ base: 2, md: 2 }}
+      padding={{ base: 1, md: 2 }}
       alignContent={"center"}
       borderRadius={"10px"}
       height={{ base: "130px", md: `${smallLaptop ? "180px" : "180px"}` }}
-      width={{ base: "280px", md: `${smallLaptop ? "310px" : "420px"}` }}
+      width={{ base: "350px", md: `${smallLaptop ? "340px" : "380px"}` }}
     >
       <Link to={""}>
         <HStack>
