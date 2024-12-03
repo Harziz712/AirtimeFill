@@ -46,7 +46,7 @@ function ServiceList({ image, name, description }: ServiceType2) {
             </Text>
             <Text fontSize={{ base: "10px", md: `12px` }}>{description}</Text>
           </Box>
-          <Box filter="grayscale(50%)">
+          <Box filter="grayscale(50%)" zIndex={"1"}>
             <Image
               src={image}
               h="240px"

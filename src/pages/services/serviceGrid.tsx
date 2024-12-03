@@ -9,7 +9,7 @@ import Network from "../../assets/serviceImages/net.png";
 
 const services: Array<ServiceType2> = [
   {
-    image: Convert,
+    image: Airtime,
     name: "Convert airtime",
     description:
       "Easily convert your over recharged airtime and get paid in minutes",
@@ -20,7 +20,7 @@ const services: Array<ServiceType2> = [
     description: "Conviniently make cable,power, educational and other bills",
   },
   {
-    image: Airtime,
+    image: Convert,
     name: "Airtime Purchase",
     description:
       "Make airtime purchases to any network and pay from your mobile wallet",
