@@ -1,7 +1,8 @@
 import { GridItem, Icon, Text } from "@chakra-ui/react";
-import { useColorModeValue } from "../../components/ui/color-mode";
-import useMediaQuery from "../../hooks/useMediaQuery";
+
 import { Link } from "react-router-dom";
+import { useColorModeValue } from "../components/ui/color-mode";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 export interface ServiceType {
   icon: any;
@@ -10,13 +11,13 @@ export interface ServiceType {
   description: string;
 }
 
-function ServiceBar({ icon, name, path, description }: ServiceType) {
+const OperationBar = ({ icon, name, path, description }: ServiceType) => {
   const textColor = useColorModeValue("cyan.800", "gray.200");
   const bgColor = useColorModeValue("gray.200", "cyan.800");
   const textHover = useColorModeValue("gray.200", "cyan.800");
   const bgHover = useColorModeValue("cyan.800", "gray.200");
   const smallLaptop = useMediaQuery("(max-width:1024px)");
-  const smallphone = useMediaQuery("(max-width:375px)");
+  const smallphone = useMediaQuery("(max-width:350px)");
 
   return (
     <GridItem
@@ -31,10 +32,10 @@ function ServiceBar({ icon, name, path, description }: ServiceType) {
       padding={{ base: 2, md: 8 }}
       alignContent={"center"}
       borderRadius={"20px"}
-      height={{ base: "150px", md: `${smallLaptop ? "200px" : "220px"}` }}
+      height={{ base: "150px", md: `${smallLaptop ? "180px" : "200px"}` }}
       width={{
-        base: smallphone ? "150px" : "175px",
-        md: `${smallLaptop ? "200px" : "220px"}`,
+        base: smallphone ? "260px" : "330px",
+        md: `${smallLaptop ? "280px" : "320px"}`,
       }}
     >
       <Link to={path}>
@@ -54,6 +55,6 @@ function ServiceBar({ icon, name, path, description }: ServiceType) {
       </Link>
     </GridItem>
   );
-}
+};
 
-export default ServiceBar;
+export default OperationBar;

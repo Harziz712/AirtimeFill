@@ -75,9 +75,9 @@ const LoginForm = () => {
         </Stack>
       </form>
       <HStack>
-        <Separator />
+        <Separator borderWidth={3} />
         <Text flexShrink="0">OR</Text>
-        <Separator />
+        <Separator borderWidth={3} />
       </HStack>
       <Link to="">
         <Button

@@ -15,6 +15,7 @@ function ServiceList({ image, name, description }: ServiceType2) {
   const textHover = useColorModeValue("gray.200", "cyan.800");
   const bgHover = useColorModeValue("cyan.800", "gray.200");
   const smallLaptop = useMediaQuery("(max-width:1024px)");
+  const smallphone = useMediaQuery("(max-width:350px)");
 
   return (
     <GridItem
@@ -29,7 +30,10 @@ function ServiceList({ image, name, description }: ServiceType2) {
       alignContent={"center"}
       borderRadius={"10px"}
       height={{ base: "130px", md: `${smallLaptop ? "180px" : "180px"}` }}
-      width={{ base: "330px", md: `${smallLaptop ? "340px" : "380px"}` }}
+      width={{
+        base: smallphone ? "280px" : "330px",
+        md: `${smallLaptop ? "310px" : "380px"}`,
+      }}
     >
       <Link to={""}>
         <HStack>

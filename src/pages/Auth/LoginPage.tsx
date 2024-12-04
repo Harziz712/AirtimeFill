@@ -47,7 +47,7 @@ const LoginPage = () => {
         <Box
           zIndex={"1"}
           paddingX={10}
-          width={{ md: smallLaptop ? "70%" : "40%" }}
+          width={{ md: smallLaptop || tablet ? "70%" : "40%" }}
         >
           <Image
             src={LoginSideImg}
