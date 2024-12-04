@@ -2,9 +2,12 @@ import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import LoginForm from "./LoginForm";
 import LoginSideImg from "../../assets/Loginside.png";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const LoginPage = () => {
   const bgColor = useColorModeValue("gray.100", "gray.900");
+  const smallLaptop = useMediaQuery("(max-width:1024px)");
+  const tablet = useMediaQuery("(min-width:768px)");
 
   return (
     <Stack
@@ -12,18 +15,19 @@ const LoginPage = () => {
       minWidth={"100vw"}
       bgColor={`${bgColor}`}
       alignItems={"right"}
-      paddingLeft={{ base: 3, md: 10 }}
+      paddingX={{ base: 3, md: smallLaptop ? 5 : 20 }}
       paddingTop={5}
     >
-      <Box marginBottom={30}>
+      <Box marginBottom={30} paddingLeft={{ base: 0, md: 10 }}>
         {" "}
         <Heading fontSize={"3xl"} color={"orange.500"}>
           HARZHUB
         </Heading>
       </Box>
       <Box
-        display={{ base: "grid", md: "hidden" }}
-        spaceX={{ base: 0, md: 40 }}
+        display={{ base: "grid", md: smallLaptop ? "grid" : "hidden" }}
+        spaceX={{ base: 0, md: smallLaptop ? 10 : 40 }}
+        paddingX={{ base: 0, md: smallLaptop ? 40 : 40 }}
       >
         <Box>
           <Box>
@@ -40,7 +44,11 @@ const LoginPage = () => {
             <LoginForm />
           </Box>
         </Box>
-        <Box zIndex={"1"} paddingX={10} width={"40%"}>
+        <Box
+          zIndex={"1"}
+          paddingX={10}
+          width={{ md: smallLaptop ? "70%" : "40%" }}
+        >
           <Image
             src={LoginSideImg}
             fit="cover"

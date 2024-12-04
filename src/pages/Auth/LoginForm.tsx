@@ -11,7 +11,7 @@ import { Field } from "../../components/ui/field";
 import { PasswordInput } from "../../components/ui/password-input";
 import { useForm } from "react-hook-form";
 import { useColorModeValue } from "../../components/ui/color-mode";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FormValues {
   email: string;
@@ -20,14 +20,16 @@ interface FormValues {
 
 const LoginForm = () => {
   const bgColor = useColorModeValue("gray.500", "gray.800");
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    console.log(data), navigate("/dashboard");
+  });
 
   return (
     <Stack>
