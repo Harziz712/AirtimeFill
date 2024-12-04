@@ -34,7 +34,7 @@ const OperationBar = ({ icon, name, path, description }: ServiceType) => {
       borderRadius={"20px"}
       height={{ base: "150px", md: `${smallLaptop ? "180px" : "200px"}` }}
       width={{
-        base: smallphone ? "260px" : "330px",
+        base: smallphone ? "260px" : "310px",
         md: `${smallLaptop ? "280px" : "320px"}`,
       }}
     >
