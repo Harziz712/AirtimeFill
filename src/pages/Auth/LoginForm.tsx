@@ -80,7 +80,7 @@ const LoginForm = () => {
         <Text flexShrink="0">OR</Text>
         <Separator borderWidth={3} />
       </HStack>
-      <Link to="">
+      <Link to="/signup">
         <Button
           type="submit"
           width={"100%"}

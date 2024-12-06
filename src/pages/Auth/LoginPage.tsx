@@ -12,13 +12,15 @@ const LoginPage = () => {
   return (
     <Stack
       minHeight={"100vh"}
-      minWidth={"100vw"}
       bgColor={`${bgColor}`}
       alignItems={"right"}
       paddingX={{ base: 3, md: smallLaptop ? 5 : 10 }}
       paddingTop={5}
     >
-      <Box marginBottom={30} paddingLeft={{ base: 0, md: 10 }}>
+      <Box
+        marginBottom={{ base: 0, md: smallLaptop || tablet ? 30 : 0 }}
+        paddingLeft={{ base: 0, md: 10 }}
+      >
         {" "}
         <Heading fontSize={"3xl"} color={"orange.500"}>
           HARZHUB
@@ -27,7 +29,7 @@ const LoginPage = () => {
       <Box
         display={{ base: "grid", md: smallLaptop ? "grid" : "hidden" }}
         spaceX={{ base: 0, md: smallLaptop ? 10 : 5 }}
-        paddingX={{ base: 0, md: smallLaptop ? 40 : 40 }}
+        paddingX={{ base: 0, md: smallLaptop ? 40 : 10 }}
       >
         <Box>
           <Box>
@@ -54,7 +56,7 @@ const LoginPage = () => {
           <Image
             src={LoginSideImg}
             fit="cover"
-            boxSize={"80%"}
+            boxSize={"70%"}
             visibility={{ base: "hidden", md: "visible" }}
           />
         </Box>

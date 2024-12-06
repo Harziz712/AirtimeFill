@@ -10,6 +10,7 @@ import ReferralPage from "./referrals";
 import Settings from "./settings";
 import GetHelpPage from "./help";
 import LoginPage from "./Auth/LoginPage";
+import SignUpPage from "./Auth/SignupPage";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "login", element: <LoginPage /> },
+  { path: "signup", element: <SignUpPage /> },
 ]);
 
 export default router;
