@@ -15,7 +15,7 @@ const LoginPage = () => {
       minWidth={"100vw"}
       bgColor={`${bgColor}`}
       alignItems={"right"}
-      paddingX={{ base: 3, md: smallLaptop ? 5 : 20 }}
+      paddingX={{ base: 3, md: smallLaptop ? 5 : 10 }}
       paddingTop={5}
     >
       <Box marginBottom={30} paddingLeft={{ base: 0, md: 10 }}>
@@ -26,7 +26,7 @@ const LoginPage = () => {
       </Box>
       <Box
         display={{ base: "grid", md: smallLaptop ? "grid" : "hidden" }}
-        spaceX={{ base: 0, md: smallLaptop ? 10 : 40 }}
+        spaceX={{ base: 0, md: smallLaptop ? 10 : 5 }}
         paddingX={{ base: 0, md: smallLaptop ? 40 : 40 }}
       >
         <Box>
@@ -46,14 +46,15 @@ const LoginPage = () => {
         </Box>
         <Box
           zIndex={"1"}
+          paddingY={{ md: 10 }}
           paddingX={10}
-          width={{ md: smallLaptop || tablet ? "70%" : "40%" }}
+          contrast="0.1"
+          width={{ md: smallLaptop || tablet ? "70%" : "20%" }}
         >
           <Image
             src={LoginSideImg}
             fit="cover"
-            contrast="0.3"
-            boxSize={"100%"}
+            boxSize={"80%"}
             visibility={{ base: "hidden", md: "visible" }}
           />
         </Box>

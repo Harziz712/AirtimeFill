@@ -28,7 +28,8 @@ const LoginForm = () => {
   } = useForm<FormValues>();
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data), navigate("/dashboard");
+    console.log(data);
+    navigate("/dashboard");
   });
 
   return (
