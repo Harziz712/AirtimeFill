@@ -1,17 +1,14 @@
-import {
-  Button,
-  Flex,
-  HStack,
-  Input,
-  Separator,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Flex, HStack, Input, Separator, Stack, Text } from "@chakra-ui/react";
 import { Field } from "../../components/ui/field";
 import { PasswordInput } from "../../components/ui/password-input";
 import { useForm } from "react-hook-form";
 import { useColorModeValue } from "../../components/ui/color-mode";
 import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../../firebase"; // Make sure to import your Firebase auth instance
+import { toaster } from "../../components/ui/toaster";
+import { Button } from "../../components/ui/button";
+import { FirebaseError } from "firebase/app";
 
 interface FormValues {
   email: string;
@@ -20,6 +17,7 @@ interface FormValues {
 
 const LoginForm = () => {
   const bgColor = useColorModeValue("gray.500", "gray.800");
+  const auth = getAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -27,9 +25,41 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm<FormValues>();
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    navigate("/dashboard");
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+      console.log("User logged in:", userCredential.user);
+      toaster.create({
+        title: "Login Successful",
+        description: "You have successfully logged in!",
+        type: "success",
+        duration: 3000,
+      });
+      navigate("/dashboard"); // Navigate to dashboard on successful login
+    } catch (error: unknown) {
+      if (error instanceof FirebaseError) {
+        console.error("Login Error:", error);
+        toaster.create({
+          title: "Login Failed",
+          description:
+            error.message || "Invalid credentials. Please try again.",
+          type: "error",
+          duration: 3000,
+        });
+      } else {
+        console.error("Unexpected Error:", error);
+        toaster.create({
+          title: "Login Failed",
+          description: "An unexpected error occurred. Please try again.",
+          type: "error",
+          duration: 3000,
+        });
+      }
+    }
   });
 
   return (
@@ -44,7 +74,7 @@ const LoginForm = () => {
             <Input
               bgColor={bgColor}
               placeholder="Type in your email address"
-              {...register("email", { required: "email is required" })}
+              {...register("email", { required: "Email is required" })}
             />
           </Field>
 
@@ -71,7 +101,9 @@ const LoginForm = () => {
           </Button>
 
           <Flex width="100%" justifyContent="flex-end">
-            <Text color={"gray.400"}>forgot password ?</Text>
+            <Link to={"/forgot-password"}>
+              <Text color={"gray.400"}>Forgot password?</Text>
+            </Link>
           </Flex>
         </Stack>
       </form>
@@ -82,7 +114,6 @@ const LoginForm = () => {
       </HStack>
       <Link to="/signup">
         <Button
-          type="submit"
           width={"100%"}
           bgColor={"orange.500"}
           color={"gray.300"}
@@ -94,4 +125,5 @@ const LoginForm = () => {
     </Stack>
   );
 };
+
 export default LoginForm;

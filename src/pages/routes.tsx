@@ -1,7 +1,6 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Layout from "../layout/Layout";
 import ErrorPage from "../layout/ErrorPage";
-import HomePage from "../layout/HomePage";
 import Dashboard from "./Dashboard";
 import ServicesPage from "./services";
 import TransactionPage from "./transaction";
@@ -11,16 +10,26 @@ import Settings from "./settings";
 import GetHelpPage from "./help";
 import LoginPage from "./Auth/LoginPage";
 import SignUpPage from "./Auth/SignupPage";
+import AuthRoute from "./Auth/AuthRoute";
+import ForgotPassword from "./Auth/ForgotPassword";
+// import HomePage from "../layout/HomePage";
 
 const router = createBrowserRouter([
+  // Redirect root (`/`) to the login page
+  { path: "/", element: <Navigate to="/login" replace /> },
+  // Public Routes
+  { path: "/login", element: <LoginPage /> },
+  { path: "/signup", element: <SignUpPage /> },
+  { path: "/forgot-password", element: <ForgotPassword /> },
+
+  // Authenticated Routes
   {
-    path: "/",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
+    element: <AuthRoute redirectPath="/login" />, // Ensure this checks for auth before allowing access
     children: [
       {
-        path: "",
-        element: <HomePage />,
+        path: "/",
+        element: <Layout />,
+        errorElement: <ErrorPage />,
         children: [
           { path: "dashboard", element: <Dashboard /> },
           { path: "services", element: <ServicesPage /> },
@@ -33,8 +42,8 @@ const router = createBrowserRouter([
       },
     ],
   },
-  { path: "login", element: <LoginPage /> },
-  { path: "signup", element: <SignUpPage /> },
+  // Catch-all for unmatched routes
+  { path: "*", element: <Navigate to="/login" replace /> },
 ]);
 
 export default router;
